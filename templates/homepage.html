@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage_style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-logo">
+            <a href="{{ url_for('homepage') }}">Game Hub</a>
+        </div>
+        <div class="navbar-links">
+            {% if user_status == "guest" %}
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('signup') }}">Signup</a>
+            {% else %}
+                <span>Welcome back, {{ username }}</span>
+                {% if is_admin %}
+                    <a href="{{ url_for('add_poster') }}">Add Game</a>
+                {% endif %}
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="game-grid">
+        {% for game in posters %}
+            <div class="game-poster-container">
+                <a href="{{ url_for('description_reviews', game_id=game[0]) }}">
+                <div class="game-poster">
+                    <img src="{{ game[2] }}" alt="{{ game[1] }}">
+                    <h3>{{ game[1] }}</h3>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

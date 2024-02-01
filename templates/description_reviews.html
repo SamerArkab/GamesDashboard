@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Description & Reviews</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/description_reviews_style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-logo">
+            <a href="{{ url_for('homepage') }}">Game Hub</a>
+        </div>
+        <div class="navbar-links">
+            {% if user_status == "guest" %}
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('signup') }}">Signup</a>
+            {% else %}
+                <span>Welcome back, {{ username }}</span>
+                {% if is_admin %}
+                    <a href="{{ url_for('add_poster') }}">Add Game</a>
+                {% endif %}
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="game-details">
+        <div class="poster-section">
+            <img src="{{ game[3] }}" alt="{{ game[1] }}">
+        </div>
+        <div class="details-section">
+            <h1>{{ game[1] }}</h1>
+            <p>{{ game[2] }}</p>
+            <h2>User Reviews</h2>
+            <ul class="reviews-list">
+                {% if user_status == "logged" %}
+                    <div class="add-review-form">
+                        <h3>Add Your Review</h3>
+                        <form action="{{ url_for('add_review', game_id=game[0]) }}" method="post">
+                            <textarea name="review_text" rows="4" required></textarea>
+                            <br>
+                            <input type="submit" value="Add Review">
+                        </form>
+                    </div>
+                {% else %}
+                    <h4>Login to add a review.</h4>
+                {% endif %}
+                {% for review in reviews %}
+                    <li>
+                        <p class="review-username">{{ review['username'] }}:</p>
+                        <p class="review-text">{{ review['text'] }}</p>
+                    </li>
+                    <hr>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

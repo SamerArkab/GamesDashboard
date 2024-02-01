@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: background-color 0.3s, color 0.3s, border-radius 0.3s; /* Add smooth transition */
+    display: inline-block;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.navbar a:hover {
+    background-color: #eee;
+    color: #333;
+    border-radius: 4px;
+}
+
+.game-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+.game-poster-container {
+    width: 350px;
+    height: 450px;
+    margin: 10px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.game-poster {
+    flex: 1;
+    border: 0.5px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease-in-out;
+    height: 470px;
+}
+
+.game-poster img {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    border: none;
+}
+
+.game-poster:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.game-poster h3 {
+    margin-bottom: 5px;
+    font-size: 18px;
+}

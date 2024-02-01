@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_poster_style.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add Game</h2>
+        <form action="{{ url_for('add_poster') }}" method="post">
+            <label for="title">Title:</label>
+            <input type="text" name="title" required>
+            <br>
+            <label for="description">Description:</label>
+            <textarea name="description" rows="4" required></textarea>
+            <br>
+            <label for="poster_url">Poster URL:</label>
+            <input type="text" name="poster_url" required>
+            <br>
+            <input type="submit" value="Add Game">
+        </form>
+        <br>
+        <a class="homepage-link" href="{{ url_for('homepage') }}">Return to Homepage</a>
+    </div>
+</body>
+</html>
