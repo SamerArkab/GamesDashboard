@@ -39,12 +39,11 @@ touch database.db
 ## Features
 
 - **Add New Games:**
-  - Log in with the owner account.
+  - Log in with the admin's account (owner is the provided user).
   - Navigate to the "Add Game" section to add new games to the hub.
 
 - **User Authentication:**
-  - Log in with the provided owner or normal user accounts.
-  - Sign up as a new normal user if needed.
+  - Sign up as a new normal user if needed (or login with the provided admin user - owner).
 
 - **Game Reviews:**
-  - Logged-in users (including normal users) can add reviews to games.
+  - Logged-in users can add reviews to games.
